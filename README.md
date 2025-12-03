@@ -1,13 +1,13 @@
-**Car Configurator**
+# Car Configurator
 
-**Description:**: Real-time collaborative vehicle configurator web app. The frontend is a React application that lets users pick a vehicle model, trim, color, wheels, interior and optional packages while the backend (Node/Express + Socket.IO) enables session-based real-time collaboration so multiple people can configure the same car together.
+**Description:** Real-time collaborative vehicle configurator web app. The frontend is a React application that lets users pick a vehicle model, trim, color, wheels, interior and optional packages while the backend (Node/Express + Socket.IO) enables session-based real-time collaboration so multiple people can configure the same car together.
 
 **Features:**
-- **Live Collaboration:**: Create or join a session and collaborate in real-time using `socket.io` (events: `join-session`, `config-update`, `config-sync`, `users-updated`).
-- **Configurable Options:**: Models, trims, colors, wheels, interiors and packages are defined in `frontend/src/data/vehicleData.js`.
-- **Price Calculations:**: Total price, breakdown and monthly payment calculations are in `frontend/src/utils/calculations.js`.
-- **Save / Share:**: Download the current configuration as JSON and copy/share session IDs.
-- **User Presence:**: See connected collaborators and who last modified the config.
+- **Live Collaboration:** Create or join a session and collaborate in real-time using `socket.io` (events: `join-session`, `config-update`, `config-sync`, `users-updated`).
+- **Configurable Options:** Models, trims, colors, wheels, interiors and packages are defined in `frontend/src/data/vehicleData.js`.
+- **Price Calculations:** Total price, breakdown and monthly payment calculations are in `frontend/src/utils/calculations.js`.
+- **Save / Share:** Download the current configuration as JSON and copy/share session IDs.
+- **User Presence:** See connected collaborators and who last modified the config.
 
 **Repository Structure:**
 - `backend/` — Node/Express server with Socket.IO handling sessions and collaboration.
@@ -23,7 +23,7 @@ Open two terminals (or use your preferred terminal multiplexer):
 1) Start the backend
 
 ```powershell
-cd ./backend
+cd backend
 npm install
 # Development with auto-reload
 npm run dev
@@ -37,7 +37,7 @@ Environment variables (optional):
 2) Start the frontend
 
 ```powershell
-cd ./frontend
+cd frontend
 npm install
 npm start
 ```
@@ -50,7 +50,7 @@ To change the backend URL used by the frontend set `REACT_APP_BACKEND_URL` in a 
 - Build the frontend for production:
 
 ```powershell
-cd ./frontend
+cd frontend
 npm run build
 ```
 
@@ -78,19 +78,5 @@ npm run build
 - Price/finance logic lives in `frontend/src/utils/calculations.js`.
 - The backend currently stores sessions in memory — for persistence across restarts add a database or external store.
 
-**Troubleshooting**
-- If the frontend cannot connect to the backend, confirm `backend` is running and `REACT_APP_BACKEND_URL` (if set) matches the backend address.
-- Use the backend health endpoint: `GET /health` (default `http://localhost:3001/health`).
-
 **Notes**
 - This project is intended as a demo/prototype: authentication, persistent storage and production hardening are not implemented.
-
-**License & Contribution**
-- This repository does not include a license file. Add a `LICENSE` if you want to open-source the project.
-- Contributions: open an issue or PR on the repository; run the app locally and update components or data as needed.
-
----
-
-If you want, I can also:
-- run the app locally and verify both servers start, or
-- add a minimal `.env.example` and update the README with exact environment variable examples.
